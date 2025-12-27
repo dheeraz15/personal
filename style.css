@@ -1,0 +1,36 @@
+body {
+    background-color: #FFF;
+    color: #000;
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+    font-size: 1em;
+    line-height: 1.5;
+    margin: 60px 40px;
+    /* Slightly more top margin to match the breathing room in the image */
+    max-width: 580px;
+    /* Constrains the text width to match the column look */
+    padding: 0;
+}
+
+a {
+    color: #600;
+    text-decoration: underline;
+}
+
+a:hover {
+    color: #800;
+}
+
+h1 {
+    font-size: 1.8em;
+    font-weight: 600;
+    margin-top: 0;
+    margin-bottom: 24px;
+    letter-spacing: -0.5px;
+    font-family: inherit;
+    /* Inherit the system sans-serif font */
+}
+
+p {
+    margin-top: 0;
+    margin-bottom: 16px;
+}
