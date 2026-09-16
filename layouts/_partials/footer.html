@@ -1,0 +1,9 @@
+<footer class="shell footer">
+  <p style="margin: 0">{{ now.Format "2006" }} {{ site.Params.author }}</p>
+  <div class="footer-links">
+    {{- range site.Params.social }}
+      <a href="{{ .url }}"{{ if hasPrefix .url "http" }} rel="me noopener"{{ end }}>{{ .name }}</a>
+    {{- end }}
+    <a href="{{ "/index.xml" | relURL }}">RSS</a>
+  </div>
+</footer>

@@ -1,0 +1,7 @@
+public/
+resources/
+.claude/
+.hugo_build.lock
+.vercel/
+.DS_Store
+node_modules/

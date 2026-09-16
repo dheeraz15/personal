@@ -1,0 +1,9 @@
+<header class="shell masthead">
+  <a class="masthead-name" href="{{ "/" | relURL }}">{{ site.Title }}</a>
+  <nav class="masthead-nav" aria-label="Primary">
+    {{- range site.Menus.main }}
+      {{- $active := or ($.IsDescendant .Page) (eq $.RelPermalink .URL) }}
+      <a href="{{ .URL }}"{{ if $active }} aria-current="page"{{ end }}>{{ .Name }}</a>
+    {{- end }}
+  </nav>
+</header>

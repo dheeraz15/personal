@@ -1,0 +1,30 @@
+{{ define "main" }}
+  <article>
+    <header class="article-head">
+      <h1 class="article-title">{{ .Title }}</h1>
+      {{- /* medium stored a truncated first paragraph as the subtitle; only show a real one */ -}}
+      {{- $sum := .Params.summary | default "" }}
+      {{- $probe := substr (strings.TrimRight "… ." $sum) 0 40 }}
+      {{- if and $sum (not (hasPrefix (strings.TrimSpace .Plain) $probe)) }}
+      <p class="article-summary">{{ $sum }}</p>
+      {{- end }}
+      <p class="article-meta">
+        <time datetime="{{ .Date.Format "2006-01-02" }}">{{ .Date.Format "January 2, 2006" }}</time>
+        {{- with .ReadingTime }} · {{ . }} min read{{ end }}
+      </p>
+    </header>
+
+    <div class="prose">{{ .Content }}</div>
+
+    <footer class="article-foot">
+      <nav class="nextprev" aria-label="More essays">
+        {{- with .PrevInSection }}
+        <a href="{{ .RelPermalink }}"><span>Next</span>{{ .Title }}</a>
+        {{- end }}
+        {{- with .NextInSection }}
+        <a href="{{ .RelPermalink }}"><span>Previous</span>{{ .Title }}</a>
+        {{- end }}
+      </nav>
+    </footer>
+  </article>
+{{ end }}

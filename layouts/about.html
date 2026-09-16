@@ -1,0 +1,68 @@
+{{ define "main" }}
+  <div class="article-head">
+    <h1 class="article-title">{{ .Title }}</h1>
+  </div>
+
+  {{- with .Content }}<div class="intro">{{ . }}</div>{{ end }}
+
+  {{- with hugo.Data.cv.experience }}
+  <section class="band" aria-labelledby="exp-head">
+    <h2 class="band-head" id="exp-head">Experience</h2>
+    <ul class="cv">
+      {{- range . }}
+      <li class="cv-item">
+        <p class="cv-when">{{ .when }}</p>
+        <h3 class="cv-org">
+          {{- with .url }}<a href="{{ . }}" rel="noopener">{{ end -}}
+          {{ .org }}
+          {{- with .url }}</a>{{ end -}}
+        </h3>
+        {{- with .note }}<p class="cv-note">{{ . }}</p>{{ end }}
+        <ul class="cv-roles">
+          {{- range .roles }}
+          <li class="cv-role">
+            <span class="cv-role-title">{{ .title }}</span>
+            <span class="cv-role-meta">{{ .period }}{{ with .place }} · {{ . }}{{ end }}</span>
+          </li>
+          {{- end }}
+        </ul>
+      </li>
+      {{- end }}
+    </ul>
+  </section>
+  {{- end }}
+
+  {{- with hugo.Data.cv.projects }}
+  <section class="band" aria-labelledby="proj-head">
+    <h2 class="band-head" id="proj-head">Projects</h2>
+    <ul class="cv">
+      {{- range . }}
+      <li class="cv-item">
+        <p class="cv-when">{{ .period }}</p>
+        <h3 class="cv-org">
+          {{- with .url }}<a href="{{ . }}" rel="noopener">{{ end -}}
+          {{ .name }}
+          {{- with .url }}</a>{{ end -}}
+        </h3>
+        <p class="cv-note">{{ .blurb }}</p>
+      </li>
+      {{- end }}
+    </ul>
+  </section>
+  {{- end }}
+
+  {{- with hugo.Data.cv.education }}
+  <section class="band" aria-labelledby="edu-head">
+    <h2 class="band-head" id="edu-head">Education</h2>
+    <ul class="cv">
+      {{- range . }}
+      <li class="cv-item">
+        <p class="cv-when">{{ .when }}</p>
+        <h3 class="cv-org">{{ .org }}</h3>
+        <p class="cv-note">{{ .title }}</p>
+      </li>
+      {{- end }}
+    </ul>
+  </section>
+  {{- end }}
+{{ end }}

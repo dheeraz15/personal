@@ -1,0 +1,17 @@
+{{ define "main" }}
+  {{- with .Params.statement }}
+  <p class="statement">{{ . }}</p>
+  {{- end }}
+
+  {{- with .Content }}
+  <div class="intro">{{ . }}</div>
+  {{- end }}
+
+  {{- $posts := where site.RegularPages "Section" "essays" }}
+  {{- with $posts }}
+  <section class="band" aria-labelledby="essays-head">
+    <h2 class="band-head" id="essays-head">Essays</h2>
+    {{ partial "log.html" . }}
+  </section>
+  {{- end }}
+{{ end }}
