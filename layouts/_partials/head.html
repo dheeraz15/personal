@@ -32,6 +32,16 @@
     <link rel="stylesheet" href="{{ $css.RelPermalink }}" integrity="{{ $css.Data.Integrity }}" />
   {{- end }}
 
+  {{- /* Applies a remembered light theme before anything paints, otherwise the
+         page flashes black on every load for someone who chose light. */}}
+  <script>
+    try {
+      if (localStorage.getItem("theme") === "light") {
+        document.documentElement.dataset.theme = "light";
+      }
+    } catch (e) {}
+  </script>
+
   <link rel="icon" href="/favicon.svg" type="image/svg+xml" />
   {{- with .OutputFormats.Get "rss" }}
   <link rel="alternate" type="application/rss+xml" href="{{ .Permalink }}" title="{{ site.Title }}" />

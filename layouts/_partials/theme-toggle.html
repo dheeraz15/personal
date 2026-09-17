@@ -1,0 +1,52 @@
+{{/* Drives the header toggle and keeps its label in step with the theme the
+      head script applied. */}}
+<script>
+  (function () {
+    var root = document.documentElement;
+
+    function isLight() {
+      return root.dataset.theme === "light";
+    }
+
+    function sync() {
+      var light = isLight();
+      var buttons = document.querySelectorAll("[data-theme-toggle]");
+      for (var i = 0; i < buttons.length; i++) {
+        buttons[i].setAttribute("aria-pressed", light ? "true" : "false");
+        buttons[i].title = light ? "Switch to dark" : "Switch to light";
+      }
+      var meta = document.querySelector('meta[name="theme-color"]');
+      if (meta) meta.setAttribute("content", light ? "#ffffff" : "#000000");
+    }
+
+    function toggle() {
+      var light = !isLight();
+      if (light) root.dataset.theme = "light";
+      else delete root.dataset.theme;
+
+      try {
+        localStorage.setItem("theme", light ? "light" : "dark");
+      } catch (e) {
+        // Private browsing can refuse storage. The theme still switches, it
+        // just will not be remembered.
+      }
+      sync();
+    }
+
+    function wire() {
+      var buttons = document.querySelectorAll("[data-theme-toggle]");
+      for (var i = 0; i < buttons.length; i++) {
+        // Bound straight to the button rather than delegated from document, so
+        // the handler does not depend on what the click actually landed on.
+        buttons[i].addEventListener("click", toggle);
+      }
+      sync();
+    }
+
+    if (document.readyState === "loading") {
+      document.addEventListener("DOMContentLoaded", wire);
+    } else {
+      wire();
+    }
+  })();
+</script>

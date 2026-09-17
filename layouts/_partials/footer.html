@@ -1,5 +1,11 @@
 <footer class="shell footer">
-  <p style="margin: 0">{{ now.Format "2006" }} {{ site.Params.author }}</p>
+  <div class="footer-meta">
+    <p>{{ now.Format "2006" }} {{ site.Params.author }}</p>
+    <p class="footer-credit">
+      Built with <a href="https://gohugo.io" rel="noopener">Hugo</a>, hosted on
+      <a href="https://vercel.com" rel="noopener">Vercel</a>
+    </p>
+  </div>
   <div class="footer-links">
     {{- range site.Params.social }}
       <a href="{{ .url }}"{{ if hasPrefix .url "http" }} rel="me noopener"{{ end }}>{{ .name }}</a>

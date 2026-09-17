@@ -7,8 +7,13 @@
       {{- range .Pages }}
       <li class="log-entry">
         <a href="{{ .RelPermalink }}">
-          <span class="log-title">{{ .Title }}</span>
-          <time class="log-date" datetime="{{ .Date.Format "2006-01-02" }}">{{ .Date.Format "Jan 2" }}</time>
+          <span class="log-head">
+            <span class="log-title">{{ .Title }}</span>
+            <time class="log-date" datetime="{{ .Date.Format "2006-01-02" }}">{{ .Date.Format "Jan 2" }}</time>
+          </span>
+          {{- with .Params.summary }}
+          <span class="log-summary">{{ . }}</span>
+          {{- end }}
         </a>
       </li>
       {{- end }}
