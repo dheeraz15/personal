@@ -1,7 +1,9 @@
-public/
-resources/
-.claude/
-.hugo_build.lock
+node_modules/
+.next/
+out/
 .vercel/
 .DS_Store
-node_modules/
+.hugo_build.lock
+.claude/
+*.tsbuildinfo
+npm-debug.log*
