@@ -1,5 +1,6 @@
 import Link from "next/link";
 import { SiteFrame } from "@/components/site-frame";
+import { ProjectLink } from "@/components/project-link";
 import { SiteHeader } from "@/components/site-header";
 import { getAllEssays, getCv, getPageContent } from "@/lib/content";
 import { formatEssayDate } from "@/lib/format";
@@ -17,7 +18,7 @@ export default function HomePage() {
           <h2 id="projects-heading"><Link className="box-link" href="/about/#projects">Projects</Link></h2>
           {cv.projects.map((project) => (
             <div className="home-list-item" key={project.name}>
-              <h3>{project.url ? <a className="box-link" href={project.url} rel="noopener">{project.name}</a> : project.name}</h3>
+              <h3><ProjectLink name={project.name} url={project.url} /></h3>
               <p>{project.blurb}</p>
             </div>
           ))}

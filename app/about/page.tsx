@@ -1,13 +1,17 @@
 import type { Metadata } from "next";
 import { Markdown } from "@/components/markdown";
 import { SiteFrame } from "@/components/site-frame";
+import { ProjectLink } from "@/components/project-link";
 import { SiteHeader } from "@/components/site-header";
 import { getCv, getPageContent } from "@/lib/content";
+import { site } from "@/lib/site";
 
 export const metadata: Metadata = {
   title: "About",
-  description: "Product manager at Third Factor AI. Previously Dailo Krishi and Khalti.",
+  description:
+    "About Dhiraj Chapagain: product manager at Third Factor AI, previously co-founder of Dailo Krishi and product at Khalti, based in Kathmandu.",
   alternates: { canonical: "/about/" },
+  openGraph: { url: "/about/" },
 };
 
 export default function AboutPage() {
@@ -45,8 +49,11 @@ export default function AboutPage() {
         <aside className="about-aside">
           <p className="about-lead">Product manager in Kathmandu, building products and writing about what the work teaches me.</p>
           <div className="about-links">
-            <a href="https://www.linkedin.com/in/underhade/" rel="me noopener">LinkedIn ↗</a>
-            <a href="https://medium.com/@underhade" rel="me noopener">Medium ↗</a>
+            {site.social.map((profile) => (
+              <a key={profile.name} href={profile.url} target="_blank" rel="me noopener noreferrer">
+                {profile.name} ↗
+              </a>
+            ))}
           </div>
 
           <section className="about-section" id="projects" aria-labelledby="projects-heading">
@@ -55,7 +62,7 @@ export default function AboutPage() {
               {cv.projects.map((project) => (
                 <li key={project.name} className="cv-item">
                   <p className="cv-when">{project.period}</p>
-                  <h3>{project.url ? <a className="box-link" href={project.url} rel="noopener">{project.name}</a> : project.name}</h3>
+                  <h3><ProjectLink name={project.name} url={project.url} /></h3>
                   <p className="cv-note">{project.blurb}</p>
                 </li>
               ))}

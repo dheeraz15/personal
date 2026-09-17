@@ -23,17 +23,25 @@ export async function generateMetadata({ params }: EssayPageProps): Promise<Meta
   if (!essay) return {};
 
   const image = getEssayImageUrl(slug, essay.cover);
+  const description = essay.summary || site.description;
   return {
     title: essay.title,
-    description: essay.summary || site.description,
+    description,
     alternates: { canonical: `/essays/${slug}/` },
     openGraph: {
       title: essay.title,
-      description: essay.summary || site.description,
+      description,
       type: "article",
       url: `/essays/${slug}/`,
       publishedTime: essay.date,
+      authors: [site.author],
       images: image ? [{ url: image }] : undefined,
+    },
+    twitter: {
+      card: image ? "summary_large_image" : "summary",
+      title: essay.title,
+      description,
+      images: image ? [image] : undefined,
     },
   };
 }
@@ -50,13 +58,24 @@ export default async function EssayPage({ params }: EssayPageProps) {
   return (
     <SiteFrame>
       <main id="main" className="article-grid">
-        <Link className="article-home box-link" href="/">Dhiraj</Link>
-        <p className="article-date"><time dateTime={essay.date.slice(0, 10)}>{formatEssayDate(essay.date)}</time></p>
         <article className="article-body">
+          <Link className="back-link" href="/essays/">
+            <span aria-hidden="true">←</span> All essays
+          </Link>
           <header className="article-heading">
             <h1>{essay.title}</h1>
+            <p className="article-meta">
+              <time dateTime={essay.date.slice(0, 10)}>{formatEssayDate(essay.date)}</time>
+              <span aria-hidden="true"> · </span>
+              {essay.minutesToRead} min read
+            </p>
           </header>
-          <Markdown>{essay.content}</Markdown>
+          <Markdown assetBase={`/essays/${slug}/`}>{essay.content}</Markdown>
+          <p className="article-back">
+            <Link className="back-link" href="/essays/">
+              <span aria-hidden="true">←</span> Back to all essays
+            </Link>
+          </p>
           {(newer || older) ? (
             <footer className="article-footer">
               <nav className="next-nav" aria-label="More essays">

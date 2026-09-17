@@ -17,15 +17,15 @@ The answer, I realized, was staring me in the face when I was 18.
 ### The Naivety of the Marketer
 
 ![image](images/1.png)
-Khalti HQ — Post Some Meeting; Circa 2024
+Khalti HQ, after a meeting, circa 2024
 
 
 
-When I started my career at Khalti, I was just a kid. I came from a marketing background — creative, chaotic, wired for noise and flash.
+When I started my career at Khalti, I was just a kid. I came from a marketing background: creative, chaotic, wired for noise and flash.
 
 I was hired as a Scrum Master. And I hated it.
 
-To my naive 18-year-old brain, “Scrum Master” sounded abstract. It sounded like a made-up role for someone who just organized meetings. I remember walking into the office and asking to have my title changed to “Business Analyst.” [Sudip Dawadi](https://medium.com/u/ecc9fbcbae05) dai (My then Manager, Head of Product) laughed, giggled and handed me the “title” I wanted. (PS. Sudip dai even gifted me the book “The Art of Doing Twice the Work in Half the Time” but I couldn’t read past 50 pages.) Why did I want it? Because “Analyst” sounded serious. It sounded like I had hard skills. It fed my ego.
+To my naive 18-year-old brain, “Scrum Master” sounded abstract. It sounded like a made-up role for someone who just organized meetings. I remember walking into the office and asking to have my title changed to “Business Analyst.” Sudip Dawadi dai (My then Manager, Head of Product) laughed, giggled and handed me the “title” I wanted. (PS. Sudip dai even gifted me the book “The Art of Doing Twice the Work in Half the Time” but I couldn’t read past 50 pages.) Why did I want it? Because “Analyst” sounded serious. It sounded like I had hard skills. It fed my ego.
 
 I look back at that kid now and laugh. **I was handing back the keys to the kingdom because I didn’t recognize the lock.**
 
@@ -61,7 +61,7 @@ When we see our “Life Backlog” visually, we realize we cannot do 50 things. 
 
 This is the hardest pillar.
 
-Osho once said that we spend 12 to 16 hours a day looking around us — observing the world — but spend zero minutes looking within. Yet, the entire universe is within.
+Osho once said that we spend 12 to 16 hours a day looking around us, observing the world, but spend zero minutes looking within. Yet, the entire universe is within.
 
 In the Waterfall life, we grind for years without checking our compass. In a Sprint, we are forced to stop every two weeks for the **Retro**.
 
@@ -82,7 +82,7 @@ We didn’t fail a career; we just failed a sprint. The cost is negligible. The 
 #### The Juice of the Ordinary
 
 ![image](images/2.png)
-Speaking Scrum — Deerwalk [2024]
+Speaking Scrum at Deerwalk, 2024
 
 
 

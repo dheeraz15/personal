@@ -4,18 +4,23 @@ import { site } from "@/lib/site";
 type SiteHeaderProps = {
   title: string;
   active: "home" | "about" | "essays";
-  compact?: boolean;
 };
 
 const navigation = [
   { href: "/about/", label: "About", id: "about" },
   { href: "/essays/", label: "Essays", id: "essays" },
-  { href: site.social[0].url, label: "LinkedIn", id: "linkedin", external: true },
-  { href: site.social[1].url, label: "Medium", id: "medium", external: true },
-] as const;
+  ...site.social.map((profile) => ({
+    href: profile.url,
+    label: profile.name,
+    id: profile.name.toLowerCase(),
+    external: true,
+  })),
+]
 
-export function SiteHeader({ title, active, compact = false }: SiteHeaderProps) {
-  const headerClass = compact ? "site-header site-header-compact" : "site-header site-header-hero";
+// Every page uses the same header so the menu sits at the same height
+// wherever you are on the site.
+export function SiteHeader({ title, active }: SiteHeaderProps) {
+  const headerClass = "site-header site-header-hero";
 
   return (
     <header className={headerClass}>
@@ -23,17 +28,20 @@ export function SiteHeader({ title, active, compact = false }: SiteHeaderProps) 
       <nav className="site-menu" aria-label="Primary">
         <Link
           href="/"
-          aria-label="Home"
           aria-current={active === "home" ? "page" : undefined}
-          className={`site-dot ${active === "home" ? "is-active" : ""}`}
-        />
+          className={active === "home" ? "site-home is-active" : "site-home"}
+        >
+          Home
+        </Link>
         {navigation.map((item) => (
           <Link
             key={item.id}
             href={item.href}
             aria-current={active === item.id ? "page" : undefined}
             className={active === item.id ? "is-active" : undefined}
-            rel={"external" in item ? "me noopener" : undefined}
+            {...("external" in item
+              ? { target: "_blank", rel: "me noopener noreferrer" }
+              : {})}
           >
             {item.label}
           </Link>

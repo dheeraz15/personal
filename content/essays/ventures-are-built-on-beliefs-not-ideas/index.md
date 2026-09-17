@@ -29,9 +29,9 @@ So what is actually worth risking for?
 
 What is one thing you believe? and what lengths of extent have you gone just to support your belief of it?
 
-A few years ago, after getting into FPS games, I was convinced PC esports would overtake mobile gaming in Nepal. It was true in Europe, LATAM, even India was heading that way — bigger screens, better games, stronger competition, so obviously more audience, right? I built a whole “company” around it, brought school friends, organized tournaments, trying to prove the market was there.
+A few years ago, after getting into FPS games, I was convinced PC esports would overtake mobile gaming in Nepal. It was true in Europe, LATAM, even India was heading that way: bigger screens, better games, stronger competition, so obviously more audience, right? I built a whole “company” around it, brought school friends, organized tournaments, trying to prove the market was there.
 
-Two years ago, with zero credibility, no degree and no relevant experience, I believed I could land a job at a product company I loved. One cold DM, an 8-page pitch, and a two-hour conversation later — I was hired.
+Two years ago, with zero credibility, no degree and no relevant experience, I believed I could land a job at a product company I loved. One cold DM, an 8-page pitch, and a two-hour conversation later, I was hired.
 
 ![image](images/2.jpg)
 

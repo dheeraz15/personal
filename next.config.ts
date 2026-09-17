@@ -3,6 +3,14 @@ import type { NextConfig } from "next";
 const nextConfig: NextConfig = {
   devIndicators: false,
   trailingSlash: true,
+  images: {
+    // Essay images live in public/essays and are resized and re-encoded on
+    // request, so readers download a size that fits their screen.
+    formats: ["image/avif", "image/webp"],
+    qualities: [75],
+    localPatterns: [{ pathname: "/essays/**", search: "" }],
+    minimumCacheTTL: 60 * 60 * 24 * 30,
+  },
   async redirects() {
     return [
       {

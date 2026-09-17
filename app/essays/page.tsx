@@ -6,8 +6,10 @@ import { getAllEssays } from "@/lib/content";
 
 export const metadata: Metadata = {
   title: "Essays",
-  description: "Essays on product, process, belief and the work of building things with people.",
+  description:
+    "Essays by Dhiraj Chapagain on product, process, belief and the work of building things with people.",
   alternates: { canonical: "/essays/" },
+  openGraph: { url: "/essays/" },
 };
 
 export default function EssaysPage() {
@@ -15,7 +17,7 @@ export default function EssaysPage() {
 
   return (
     <SiteFrame>
-      <SiteHeader title="Essays" active="essays" compact />
+      <SiteHeader title="Essays" active="essays" />
       <main id="main" className="archive-grid">
         {essays.length ? <EssayList essays={essays} /> : <p className="dimmed">Nothing here yet.</p>}
       </main>

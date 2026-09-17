@@ -11,7 +11,7 @@ aliases:
 When you are building critical financial infrastructure for millions to serve, it is important to establish a rationale of why. “Why” behind the product, process, people and the tools at use.
 > Read: [The philosophy behind product principles at Khalti](https://medium.com/@seansdaud/product-principle-aspirations-at-khalti-215d8f005f7d)
 ![image](images/1.jpg)
-[Pragmatic Agile — Eylean](https://www.eylean.com/blog/2015/07/top-5-most-interesing-scrum-boards/)
+[Pragmatic Agile, Eylean](https://www.eylean.com/blog/2015/07/top-5-most-interesing-scrum-boards/)
 
 
 
@@ -63,7 +63,7 @@ Below are few of structured events & forums, we defined for our cross-functional
 ### Empiricism
 
 ![image](images/2.jpg)
-[Adrian Camilleri — PhiloshopyMT](https://medium.com/r?url=https%3A%2F%2Fphilosophymt.com%2Funravelling-empiricism-the-quest-for-knowledge-through-experience%2F)
+[Adrian Camilleri, PhilosophyMT](https://philosophymt.com/unravelling-empiricism-the-quest-for-knowledge-through-experience/)
 
 
 
@@ -78,7 +78,7 @@ Sprints help; defining a clear goal, success metric and acceptance criteria for 
 ### Ownership
 
 ![image](images/3.png)
-[Marcus Andrews — Pendo](https://www.pendo.io/pendo-blog/how-to-use-the-product-management-life-cycle-to-drive-better-business-outcomes/)
+[Marcus Andrews, Pendo](https://www.pendo.io/pendo-blog/how-to-use-the-product-management-life-cycle-to-drive-better-business-outcomes/)
 
 
 
@@ -95,6 +95,6 @@ The Stacey Complexity Matrix
 
 
 
-Nothing is known of — you can only connect the dots looking backwards. Ultimately, the goal with scrum is to help us periodically look back, connect the dots and internalize lessons to evolve.
+Nothing is known ahead of time. You can only connect the dots looking backwards. Ultimately, the goal with scrum is to help us periodically look back, connect the dots and internalize lessons to evolve.
 
-When we are saying no — we are also saying yes to something else. Ours was scrum, but your “else” doesn’t have to be the same, rather it has to be something that brings value to your product, process and the people at core building them.
+When we are saying no, we are also saying yes to something else. Ours was scrum, but your “else” doesn’t have to be the same, rather it has to be something that brings value to your product, process and the people at core building them.

@@ -102,10 +102,6 @@ body:has([data-tone="not-found"]) {
   min-height: 476px;
 }
 
-.site-header-compact {
-  min-height: 240px;
-}
-
 .site-title {
   grid-column: span 4;
   margin: 0;
@@ -142,19 +138,13 @@ body:has([data-tone="not-found"]) {
   color: var(--text);
 }
 
-.site-dot {
-  width: 24px;
-  height: 24px;
-  margin: 7px 0 5px 2px;
-  border-radius: 50%;
-  background: currentColor;
-}
-
-.site-frame[data-tone="dark"] .site-dot.is-active {
+/* Home keeps the accent the dot used to have: orange on the dark pages,
+   white on the green About page. */
+.site-frame[data-tone="dark"] .site-menu a.site-home.is-active {
   color: #ff5c00;
 }
 
-.site-frame[data-tone="about"] .site-dot {
+.site-frame[data-tone="about"] .site-menu a.site-home.is-active {
   color: #ffffff;
 }
 
@@ -288,27 +278,53 @@ body:has([data-tone="not-found"]) {
   margin-top: 48px;
 }
 
-.article-home {
-  grid-column: 1;
-  color: var(--dim);
+.back-link {
+  display: inline-flex;
+  align-items: baseline;
+  gap: 6px;
+  /* Tall enough to hit comfortably on a phone. */
+  min-height: 44px;
+  align-items: center;
+  color: inherit;
   font-weight: 600;
+  text-decoration: none;
 }
 
-.article-date {
-  grid-column: 2;
-  margin: 0;
-  color: var(--dim);
-  font-weight: 600;
+.back-link span {
+  transition: transform 150ms ease;
+}
+
+.back-link:hover {
+  color: var(--accent);
+}
+
+.back-link:hover span {
+  transform: translateX(-3px);
 }
 
 .article-body {
   grid-column: 2 / span 4;
-  margin-top: 104px;
   min-width: 0;
 }
 
+.article-body > .back-link {
+  margin-bottom: 16px;
+}
+
 .article-heading {
-  margin-bottom: 112px;
+  margin-bottom: 64px;
+}
+
+.article-heading .article-meta {
+  margin: 16px 0 0;
+  color: var(--dim);
+  font-size: 14px;
+  font-weight: 500;
+  line-height: 20px;
+}
+
+.article-back {
+  margin: 64px 0 0;
 }
 
 .article-heading h1 {
@@ -462,16 +478,68 @@ body:has([data-tone="not-found"]) {
   margin: 48px 0;
 }
 
+.markdown {
+  overflow-wrap: break-word;
+}
+
+.markdown .figure {
+  margin: 40px 0;
+}
+
 .markdown img {
   display: block;
   width: 100%;
   height: auto;
-  margin: 8px 0;
+  /* Square or portrait shots rendered at full column width took over the whole
+     screen. The cap keeps the writing in view; contain keeps them uncropped. */
+  max-height: 560px;
   object-fit: contain;
+  border-radius: 4px;
+  background: rgba(var(--text-rgb), 0.04);
 }
 
-.markdown p:has(> img:only-child) {
-  margin: 32px 0;
+.markdown figcaption {
+  margin-top: 12px;
+  color: var(--dim);
+  font-size: 14px;
+  line-height: 20px;
+  text-align: center;
+}
+
+.markdown figcaption a {
+  color: inherit;
+  text-decoration: underline;
+  text-underline-offset: 2px;
+}
+
+.markdown pre,
+.markdown table {
+  max-width: 100%;
+}
+
+.markdown table {
+  display: block;
+  overflow-x: auto;
+  border-collapse: collapse;
+}
+
+.project-link {
+  display: inline-flex;
+  align-items: center;
+  gap: 4px;
+}
+
+.external-icon {
+  width: 0.8em;
+  height: 0.8em;
+  flex: none;
+  opacity: 0.7;
+  transition: transform 150ms ease, opacity 150ms ease;
+}
+
+.project-link:hover .external-icon {
+  opacity: 1;
+  transform: translate(2px, -2px);
 }
 
 .about-bio {
@@ -648,33 +716,42 @@ body:has([data-tone="not-found"]) {
 }
 
 @media (max-width: 640px) {
+  /* On a phone the desktop header took the whole first screen: a tall block
+     with the menu stacked one word per line. It now sits on one wrapped row
+     so the introduction is visible without scrolling. */
   .site-header {
     display: block;
+    margin-bottom: 40px;
   }
 
   .site-header-hero {
-    min-height: 510px;
-  }
-
-  .site-header-compact {
-    min-height: 288px;
+    min-height: 0;
   }
 
   .site-header-hero .site-title {
-    padding-top: 64px;
-  }
-
-  .site-header-hero .site-menu {
-    padding-top: 104px;
-  }
-
-  .site-header-compact .site-title {
     padding-top: 32px;
   }
 
-  .site-header-compact .site-menu {
-    padding-top: 56px;
+  .site-header-hero .site-menu {
+    padding-top: 16px;
   }
+
+  .site-menu {
+    flex-direction: row;
+    flex-wrap: wrap;
+    align-items: center;
+    column-gap: 20px;
+    row-gap: 4px;
+    font-size: 18px;
+    line-height: 28px;
+  }
+
+  .site-menu a {
+    min-height: 44px;
+    display: inline-flex;
+    align-items: center;
+  }
+
 
   .home-grid,
   .archive-grid,
@@ -715,21 +792,36 @@ body:has([data-tone="not-found"]) {
     margin-top: 16px;
   }
 
-  .article-home {
-    grid-column: 1;
-  }
-
-  .article-date {
-    grid-column: 2;
-  }
-
   .article-body {
     grid-column: 1 / -1;
-    margin-top: 72px;
+    padding-top: 16px;
   }
 
   .article-heading {
-    margin-bottom: 72px;
+    margin-bottom: 40px;
+  }
+
+  .article-heading h1 {
+    font-size: 28px;
+    line-height: 34px;
+  }
+
+  .markdown {
+    font-size: 17px;
+    line-height: 27px;
+  }
+
+  .markdown h2 {
+    font-size: 22px;
+    line-height: 28px;
+  }
+
+  .markdown .figure {
+    margin: 32px 0;
+  }
+
+  .markdown img {
+    max-height: 420px;
   }
 
   .next-nav {
