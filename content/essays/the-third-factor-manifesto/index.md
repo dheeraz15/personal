@@ -3,6 +3,7 @@ title: "The Power of Presence: The Third Factor Manifesto"
 date: 2025-12-27T19:57:37.213Z
 summary: "The Friction of Being"
 cover: "images/1.png"
+draft: true
 aliases:
   - "/the-power-of-presence-the-third-factor-manifesto-9d9c1c7c62eb"
 ---
